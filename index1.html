@@ -1,0 +1,77 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylisheet" href="style.css">
+    <style>
+    .a{
+        background-color: rgba(231, 138, 17, 0.718);
+        cursor: pointer;
+        display: inline-block;
+    }
+    .c{
+        color: azure;
+    }
+    </style>
+    <script>
+        function fun()
+        {
+            if(document.getElementById('Celsius').value!="")
+            {
+                var Celsius = document.getElementById('Celsius').value;
+                document.getElementById("Fahrenheit").value=(Celsius*1.8)+32;
+                document.getElementById("Kelvin").value=(Celsius-32)*(5/9)
+            }
+            if (document.getElementById('Fahrenheit').value!="") 
+            {
+                var Fahrenheit = document.getElementById('Fahrenheit').value;
+                document.getElementById("Celsius").value=(Fahrenheit-32)*(5/9);
+                document.getElementById("Kelvin").value= (Fahrenheit-32)*(5/9)+273.15;
+            } else  {
+                var Kelvin = document.getElementById('Kelvin').value;
+                document.getElementById("Celsius").value=Kelvin-273.15;
+                document.getElementById("Fahrenheit").value=(Kelvin-273.15)*(9/5)+32;
+            }
+        }
+        function a(x){
+            document.getElementById(x).style.background = "black";
+            }
+    </script>
+</head>
+<link rel="stylisheet" href="style.css">
+<body style="background-color: black;">
+    <h1 align="center" style="background-color: aliceblue;">Temperature Converter</h1>
+    <form method="get">
+        <table align="center" width="500px" height="200px" style="background-color:white;">
+            <tr>
+                <th>Degrees</th>
+                <th>values</th>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <th>Celsius</th>
+                <th><input type="number" id="Celsius" name="Celsius" class="c" placeholder="Enter the value" size="30" maxlength="10" onfocus="a(this.id)"></th>
+            </tr>
+            <tr>
+                <th>Fahrenheit</th>
+                <th><input type="number" id="Fahrenheit" class="c" name="Fahrenheit" placeholder="Enter the value" size="30" maxlength="10" onfocus="a(this.id)"></th>
+            </tr>
+            <tr>
+                <th>Kelvin</th>
+                <th><input type="number" id="Kelvin" name="Kelvin"  class="c" placeholder="Enter the value" size="30" maxlength="10" onfocus="a(this.id)"></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr> 
+                <th align="center"><input  type="submit" onclick = "fun ()" class="a" value="Convert" width="500px"  style="color: #000000;width: 100px; height: 40px; "></th>
+                <th align="center"><input  type="reset" onclick = "reset ()" class="a" value="Reset"  width="500px"  style="color: #000000; width: 100px; height: 40px;"></th>
+        </table>
+    </form>
+</body>
+</html>
